@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Burger Palace</title>
+	 <!--<meta name="viewport" content="width=device-width, initial-scale=1.0" />-->
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	 <link rel="shortcut icon" type="image/png" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFw2RrqyB-4C2suHp8rZoI-mmm64L8xgkbwA&usqp=CAU"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+<body>
+
+<main id='app'>
+
+
+
+
+	<header>
+		
+			<div class="head_container">
+				<section id='head_tag'><a href="#">Burger Palace</a></section>
+				<div class="link_section">
+					
+					<section class="links">
+						<ul>
+							<li><a href="#"> Home</a></li>
+							<li><a href="#main-content">About</a></li>
+							<li><a href="#order">Order</a></li>
+							<li><a href="#footer">Contact</a></li>
+							
+							
+
+						</ul>
+					</section>
+
+				</div>
+
+			</div>
+			
+			
+			</div>
+		
+	</header>
+<section class="main-content" id='main-content'>
+
+		<div class="container">
+			<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+			<img src="img/mc-chicken.png">
+		</div>
+
+		<div class="container" id='order'>
+			
+			<div class="item "  id='item' v-for='products in products' @click="products.active=!products.active " :class="products.active?'selected':''">
+				<img :src="products.img">
+				<div class="item_name">
+					{{products.name}}
+				</div>
+				<div class="item_price">
+					₹{{products.price}}
+				</div>
+				<div class="quantity-area" v-if='products.active'>
+	                            <button @click='products.quantity--' :disabled='products.quantity<=1' >-</button>
+	                            <span class="quantity">{{products.quantity}}</span>
+	                            <button @click.stop='products.quantity++'>+</button>
+	                        </div>
+				
+			</div>
+
+			
+		</div>
+	</div>
+</section>
+
+
+
+ <section class="summary" id='summary' v-if='total()>0' >
+ 	
+                <strong>Order Details</strong>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for='products in products' >
+                            <template v-if='products.active'>
+                            <td >{{products.quantity+' X '+products.name}}</td>
+                            <td >₹{{products.price*products.quantity}}</td>
+                           </template>
+                        </tr>
+                        
+                        
+                        <tr>
+                            <th>Total + Delivery</th>
+                            <th>₹ {{total()+"+"+delivery}}</th>
+                        </tr>
+                         <tr>
+                            <th>Amount To Pay</th>
+                            <th>₹ {{amt_pay()}}</th>
+                        </tr>
+                    </tbody>
+                </table>
+                <button type="submit" @click=send(total()) id='submitted'>Place Order</button>
+           
+</section>
+
+
+<section id="order-form" >
+	<div class="container1" v-if='total_price>0'>
+		<form action="https://postmail.invotes.com/send"
+                        method="post" id="email_form" >
+
+                        <input  type="text" name="subject" placeholder="Subject" required />
+                        <input type="text" name="extra_fullName"
+                                    placeholder="Full Name" required />
+                         <input type="text" name="extra_email"
+                                    placeholder="E-mail Address" required/>
+                                     <input type="text" name="extra_phone_number"
+                                    placeholder="Phone Number" required /> 
+                                    <input type="text" name="extra_address" placeholder="Address" required>
+                         
+
+                        <textarea readonly name="text" placeholder="Message" >
+                        Order Details
+                       
+                          Item Purchased: {{show()}}
+
+                          Price Of Product: ₹{{total()}} 
+                          Delivery:₹{{delivery}}
+                          Bill To Pay: ₹{{amt_pay()}}
+                         
+                         </textarea>
+                        
+                  
+                  
+                       
+                    
+                        <input type="hidden" name="access_token" value="zzesbvulira5d9286ars9d01" />
+                        <!-- return urls can be fully qualified -OR-
+                            start with / for root relative -OR-
+                            start with . for url relative --> 
+                        <input type="hidden" name="success_url" value="http://burger-palace.infinityfreeapp.com/thank.html" />
+                        <input type="hidden" name="error_url" value="https://www.google.com" />
+                    
+
+                        <!-- set the reply-to address -->
+                        <!-- <input type="text" name="reply_to"
+                                    placeholder="Your Email" /> -->
+
+                        <!-- to append extra fields, use the extra_ prefix.
+                            Entries will be appended to your message body. -->
+                        
+
+                        <!-- to split your message into 160 chars
+                            for an sms gateway -->
+                        <!-- <input type="hidden"
+                                    name="sms_format" value="true" /> -->
+                    
+                        <input id="submit_form" type="submit" value="Send" / >
+
+                    </form>
+
+                    
+                    
+</div>
+</section>
+
+
+
+<footer id='footer'>
+	<div class="container">
+		
+		
+			<ul>
+
+					<li> <h4 class="footer-section-title">Burger Shop</h4> </li>
+			</ul>
+
+
+ 				<div class="contact-shop">
+                        	
+                        	
+                        	<ul>
+                        		<li> <h4 class="footer-section-title">Follow us</h4> </li>
+                        		<div class="link">
+                        		<li><a href="https://www.facebook.com/" class="fa fa-facebook"></a></li>
+								<li><a href="https://www.twitter.com/" class="fa fa-twitter"></a></li>
+                        		<li><a href="https://www.instagram.com/" class="fa fa-instagram"></a></li>
+                        		</div>
+                        	</ul>
+       				 </div>		
+    
+
+
+
+                       <div class="contact-shop">
+                        	
+                        	
+                        	<ul>
+                        		<li> <h4 class="footer-section-title">Contact us</h4> </li>
+                        		<li><a href="mailto:burgerpalace12@gmil.com">burgerpalace12@gmail.com</a></li>
+                        		<li><a href="tel:987654321">987654321</a></li>
+                        		<li><a href="https://goo.gl/maps/8TQf2C7zcYxTrucS8"> Cuddalore</a></li>
+
+                        	</ul>
+                       </div>	
+						     <ul>
+								<li> <h4 class="footer-section-title">Copyrights &copy 2022</h4> </li>
+							</ul>
+						</div>
+	
+</footer>
+            
+
+</main>
+<script src="https://unpkg.com/vue@next"></script>
+<script type="text/javascript" src="js/script.js"></script>
+
+
+</body>
+</html>
