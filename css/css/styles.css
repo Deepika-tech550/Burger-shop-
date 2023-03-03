@@ -1,0 +1,312 @@
+body
+{
+	max-width: 100%;
+	height: 1000px;
+}
+header
+{
+	height: 100px;
+
+	max-width: 100%;
+
+}
+button
+{
+	background-image: linear-gradient(130deg, #95942b,#b06630) ;
+	
+	border-radius: 5px solid white;
+
+	width: 200px;
+	height: 30px;
+	margin-top: 40px;
+	color: white;
+}
+
+.container
+{
+	height: 400px;
+	
+	max-width: 100%;
+	padding: 20px;
+	margin: 20px;
+	display: flex;
+	flex-direction:row ;
+	justify-content: space-between;
+	
+	
+}
+.container span
+{
+	padding-top: 100px;
+	font-size: 21px;
+	font-family: serif;
+}
+
+.item_name 
+{
+	font-size: 20px;
+	text-align: center;
+	
+	
+}
+
+.item_price
+{
+	font-size: 24px;
+	text-align: center;
+	padding-top:30px ;
+}
+
+#head_tag
+{
+	
+	font-size: 30px;
+	font-family: serif;
+	font-weight: bold;
+	padding: 10px 70px 0 70px;
+	color: #ffffff;
+}
+.head_container
+{
+	height: 80px;
+	background-image: linear-gradient(130deg, #95942b,#b06630);
+	display:flex;
+	flex-direction: row;
+	max-width: 100%;
+	width: 1700px;
+	justify-content: space-between;
+	max-width: 100%;
+	
+	border: 1px solid black;
+	position: fixed;
+	z-index: 1;
+}
+
+ a
+{
+	text-decoration: none;
+	color: white;
+}
+.link_section
+{
+	display: inline-block;
+	width: 700px;
+	margin-left:50px ;
+}
+.links ul
+{
+	    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding:20px 70px  0 70px; 
+   margin: 0;
+    list-style-type: none;
+}
+.content 
+{
+	background-color: yellow;
+	width: 1000px;
+	height: 400px;
+	padding: 200px;
+}
+
+.item
+{
+	height: 400px;
+	width: 300px;
+	background-color: white;
+	box-shadow: 4px 12px 15px 18px rgba(0,1,2,0.1);
+}
+
+.item.selected
+{
+	border-style: double;
+    border-color: green;
+
+
+}
+
+.item img
+{
+	width: 200px;
+	height: 200px;
+	padding:0px 50px;
+}
+.quantity-area
+{
+	padding-top: 10px;
+	text-align: center;
+	margin: 10px;
+}
+.quantity-area button {
+    width: 16px;
+    height: 16px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.quantity-area .quantity {
+
+    font-weight: bold;
+    margin: 0 4px;
+}
+
+section.summary {
+
+    background-color: rgb(245, 245, 245);
+    padding: 20px;
+    min-height: 200px;
+    min-width: 50px;
+    text-align: center;
+    font-family: serif;
+    padding-top: 100px;
+    margin: 0 200px;
+   
+}
+
+section.summary table {
+    width: 100%;
+    padding-top: 12px;
+    font-size: 16px;
+    margin: auto;
+     font-family: serif;
+}
+
+section.summary table tbody tr:last-of-type th {
+    border-top: 1px solid black;
+    padding-top: 4px;
+     font-family: serif;
+     font-size: 17px;
+}
+
+
+
+
+input[type=text],input[type=email],input[type=phone], select, #subject{
+  width: 100%;
+  padding: 9px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+textarea
+{ width: 100%;
+  padding: 9px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  height:300px;
+  font-size: 15px;
+
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+	width: 150px;
+  background-image: linear-gradient(130deg, #95942b,#b06630) ;
+	
+  color: white;
+  padding: 20px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+  margin: 20px;
+}
+
+input[type=submit]:hover {
+  background-image:linear-gradient(130deg, #95942b,yellow,#b06630) ;
+  color: black;
+}
+
+.container1 {
+  border-radius: 5px;
+  margin: 50px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+ 
+}
+
+
+
+.col-25 {
+  float: left;
+  width: 35%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 65%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+footer .container .contact-shop ul
+{
+	display: flex;
+	flex-direction: column;
+}
+
+
+
+footer .container
+{
+	max-width: 100%;
+	height: 100px;
+	margin: 0;
+	padding: 20px;
+	background-image: linear-gradient(130deg, #95942b,#b06630) ;
+	display: flex;
+	flex-direction:row;
+	color: white;
+}
+
+footer .container ul
+{
+	list-style-type: none;
+	display: flex;
+	flex-direction: row;
+	margin: 0;
+	
+
+}
+.footer-section-title
+{
+	margin: 20px;
+	padding-top: 0;
+}
+
+
+footer .contact-shop .link
+{
+	display: flex;
+	flex-direction: row;
+}
+
+footer .link a 
+{
+	padding-left: 20px;
+}
+/*media screen */
+
+@media only screen and (max-width:800px){
+	
+	body
+	{
+		min-width: 500px;
+	}
+
+	}
