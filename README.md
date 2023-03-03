@@ -4,6 +4,6 @@ This Project mainly focus on
 1. Order Item 
 2. Qunatity number changing
 3. Placing Order.
-4. 
+
 Finally the website is hosted in infinityfreeapp.com
 Link-  http://burger-palace.infinityfreeapp.com/
